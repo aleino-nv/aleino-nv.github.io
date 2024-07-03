@@ -99,10 +99,8 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-[shader("compute")]
-[numthreads(1,1,1)]
-void computeMain()
-{
+@compute @workgroup_size(1u, 1u, 1u)
+fn main() {
 }
         </pre>
                 
