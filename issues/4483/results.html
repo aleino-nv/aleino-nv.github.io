@@ -1,12 +1,12 @@
 <html>
   <body>
-    
+
     <h1>Compute Shaders<h1>
 
         <h2>compute 1</h2>
         <code>slangc -dump-intermediates -entry computeMain -o compute1.wgsl -target wgsl -stage compute compute1.slang -profile cs_6_1</code>
         <pre style="text-align: left; display:table-cell; background-color:f0d0d0">
-RWStructuredBuffer<float> result;
+RWStructuredBuffer&lt;float&gt; result;
 
 [shader("compute")]
 [numthreads(1,1,1)]
@@ -103,7 +103,7 @@ OpFunctionEnd
 fn main() {
 }
         </pre>
-                
+
     <h1>Fragment Shaders<h1>
         <h2>fragment 1</h2>
         <code>slangc -dump-intermediates -entry fragmentMain -o fragment1.wgsl -target wgsl -stage fragment fragment1.slang -profile ps_6_1</code>
@@ -160,14 +160,14 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var<private> v : vec4<f32>;
+var&lt;private&gt; v : vec4&lt;f32&gt;;
 
-fn main_inner(v_1 : vec4<f32>) {
-  v = (v_1 + vec4<f32>(1.0f, 2.0f, 3.0f, 4.0f));
+fn main_inner(v_1 : vec4&lt;f32&gt;) {
+  v = (v_1 + vec4&lt;f32&gt;(1.0f, 2.0f, 3.0f, 4.0f));
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4<f32>) -> @location(0u) vec4<f32> {
+fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
   main_inner(v_2);
   return v;
 }
@@ -287,7 +287,7 @@ OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:c0c0c0">
 internal compiler error: TINT_UNIMPLEMENTED unhandled SPIR-V instruction: 79
-        </pre>    
+        </pre>
 
         <h2>fragment 4</h2>
         <code>slangc -dump-intermediates -entry fragmentMain -o fragment4.wgsl -target wgsl -stage fragment fragment4.slang -profile ps_6_1</code>
@@ -345,18 +345,18 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var<private> v : vec4<f32>;
+var&lt;private&gt; v : vec4&lt;f32&gt;;
 
-fn main_inner(v_1 : vec4<f32>) {
-  v = vec4<f32>((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
+fn main_inner(v_1 : vec4&lt;f32&gt;) {
+  v = vec4&lt;f32&gt;((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4<f32>) -> @location(0u) vec4<f32> {
+fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
   main_inner(v_2);
   return v;
 }
-        </pre>    
-    
+        </pre>
+
   </body>
 </html>
