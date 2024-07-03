@@ -182,16 +182,25 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var&lt;private&gt; v : vec4&lt;f32&gt;;
+var&lt;private&gt; x : vec4f;
 
-fn main_inner(v_1 : vec4&lt;f32&gt;) {
-  v = vec4&lt;f32&gt;((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
+var&lt;private&gt; entryPointParam_fragmentMain : vec4f;
+
+fn main_1() {
+  entryPointParam_fragmentMain = (x + vec4f(1.0f, 2.0f, 3.0f, 4.0f));
+  return;
+}
+
+struct main_out {
+  @location(0)
+  entryPointParam_fragmentMain_1 : vec4f,
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
-  main_inner(v_2);
-  return v;
+fn main(@location(0) x_param : vec4f) -&gt; main_out {
+  x = x_param;
+  main_1();
+  return main_out(entryPointParam_fragmentMain);
 }
         </pre>
 
@@ -251,16 +260,25 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var&lt;private&gt; v : vec4&lt;f32&gt;;
+var&lt;private&gt; x : vec4f;
 
-fn main_inner(v_1 : vec4&lt;f32&gt;) {
-  v = vec4&lt;f32&gt;((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
+var&lt;private&gt; entryPointParam_fragmentMain : vec4f;
+
+fn main_1() {
+  entryPointParam_fragmentMain = ((x * 2.0f) + vec4f(1.0f, 2.0f, 3.0f, 4.0f));
+  return;
+}
+
+struct main_out {
+  @location(0)
+  entryPointParam_fragmentMain_1 : vec4f,
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
-  main_inner(v_2);
-  return v;
+fn main(@location(0) x_param : vec4f) -&gt; main_out {
+  x = x_param;
+  main_1();
+  return main_out(entryPointParam_fragmentMain);
 }
         </pre>
 
@@ -318,16 +336,25 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var&lt;private&gt; v : vec4&lt;f32&gt;;
+var<private> x : vec4f;
 
-fn main_inner(v_1 : vec4&lt;f32&gt;) {
-  v = vec4&lt;f32&gt;((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
+var<private> entryPointParam_fragmentMain : vec4f;
+
+fn main_1() {
+  entryPointParam_fragmentMain = vec4f(x.xy, 3.0f, 4.0f);
+  return;
+}
+
+struct main_out {
+  @location(0)
+  entryPointParam_fragmentMain_1 : vec4f,
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
-  main_inner(v_2);
-  return v;
+fn main(@location(0) x_param : vec4f) -> main_out {
+  x = x_param;
+  main_1();
+  return main_out(entryPointParam_fragmentMain);
 }
         </pre>
 
@@ -387,16 +414,25 @@ OpReturn
 OpFunctionEnd
         </pre>
         <pre style="text-align: left; display:table-cell; background-color:d0d0f0">
-var&lt;private&gt; v : vec4&lt;f32&gt;;
+var&lt;private&gt; x : vec4f;
 
-fn main_inner(v_1 : vec4&lt;f32&gt;) {
-  v = vec4&lt;f32&gt;((42.0f * v_1.x), 2.0f, 3.0f, 4.0f);
+var&lt;private&gt; entryPointParam_fragmentMain : vec4f;
+
+fn main_1() {
+  entryPointParam_fragmentMain = vec4f((42.0f * x.x), 2.0f, 3.0f, 4.0f);
+  return;
+}
+
+struct main_out {
+  @location(0)
+  entryPointParam_fragmentMain_1 : vec4f,
 }
 
 @fragment
-fn main(@location(0u) v_2 : vec4&lt;f32&gt;) -&gt; @location(0u) vec4&lt;f32&gt; {
-  main_inner(v_2);
-  return v;
+fn main(@location(0) x_param : vec4f) -&gt; main_out {
+  x = x_param;
+  main_1();
+  return main_out(entryPointParam_fragmentMain);
 }
         </pre>
 
